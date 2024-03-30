@@ -9,13 +9,13 @@ function Logo() {
       shapeRendering="geometricPrecision"
       viewBox="50 50 300 300"
     >
-      <use fill="#e81276" xlinkHref="#B"></use>
-      <g fill="none" stroke="#e81276" strokeLinejoin="round" strokeWidth="2">
+      <use fill="#394eec" xlinkHref="#B"></use>
+      <g fill="none" stroke="#394eec" strokeLinejoin="round" strokeWidth="2">
         <use xlinkHref="#B"></use>
         <use xlinkHref="#C"></use>
         <use x="20" y="-100" xlinkHref="#C"></use>
       </g>
-      <g fill="#e81276">
+      <g fill="#394eec">
         <use xlinkHref="#C"></use>
         <use x="20" y="-100" xlinkHref="#C"></use>
       </g>

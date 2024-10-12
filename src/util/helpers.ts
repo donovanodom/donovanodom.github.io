@@ -1,3 +1,5 @@
+import { Algo, AlgoTag, WriteUp } from "../types/types"
+
 export const searchWriteUpText = (params: string, writeUps: WriteUp[]): WriteUp[] => {
   const paramsArray: string[] = params.split(' ')
   let filteredWriteUps = [...writeUps]
@@ -24,7 +26,7 @@ export const parseDate = (date: string): string => {
   })
 }
 
-export const filterByTags = (algorithms: Algo[], tags: Tag[]): Algo[] => {
+export const filterByTags = (algorithms: Algo[], tags: AlgoTag[]): Algo[] => {
   const tagName: string[] = []
   tags.map((tag) => {
     if(tag.active){
@@ -34,8 +36,8 @@ export const filterByTags = (algorithms: Algo[], tags: Tag[]): Algo[] => {
   return algorithms.filter((algorithm: Algo) => algorithm.tags.some((tag) => tagName.includes(tag)))
 }
 
-export const initTags = (algorithms: Algo[] = []): Tag[] => {
-  const mappedTags = algorithms.reduce((allTags: Tag[], algorithm: Algo) => {
+export const initTags = (algorithms: Algo[] = []): AlgoTag[] => {
+  const mappedTags = algorithms.reduce((allTags: AlgoTag[], algorithm: Algo) => {
     const tags = algorithm.tags
     for(const tag of tags){
       const tagIndex = allTags.findIndex((prevTag) => prevTag.name == tag)

@@ -4,7 +4,7 @@ import tailwindcss from "tailwindcss";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base : import.meta.env.VITE_BASE_URL,
+  base : 'http://donovanodom.github.io/',
   plugins: [react()],
   css: {
     postcss: {

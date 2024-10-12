@@ -10,7 +10,7 @@ import ProjectDetails from './components/projects/ProjectDetails';
 function App() {
 
   return ( 
-    <Router basename={import.meta.env.VITE_BASE_URL}> 
+    <Router basename='http://donovanodom.github.io/'> 
         <NavBar/>
         <Routes>
           <Route path='/' element={<AboutMe/>} />

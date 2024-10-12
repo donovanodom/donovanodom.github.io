@@ -18,9 +18,11 @@ const NavBar = () => {
   return (
     <nav className={`bg-white border-b border-b-black fixed top-0 w-full ${toggleOpen ? 'z-[6]' : 'z-[1]'}`}>
       <div className="flex flex-wrap items-center justify-between mx-auto p-4">
-        <div className="text-black text-xl font-bold leading-tight tracking-tight rounded-lg focus:outline-none focus:shadow-outline">
-            Donovan Codes
-        </div>
+        <Link to='/'>
+          <div className="text-black text-xl leading-tight tracking-tight rounded-lg focus:outline-none focus:shadow-outline">
+              Donovan Odom
+          </div>
+        </Link>
         <button
           data-collapse-toggle="navbar-dropdown"
           type="button"

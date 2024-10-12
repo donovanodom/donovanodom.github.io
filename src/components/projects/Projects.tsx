@@ -24,7 +24,7 @@ export default function Projects(){
         {!!initProjects && initProjects?.map((project: Project) => (
             <div key={project.id} onClick={() => navigate(`/projects/${project.id}`)} className="pointer [&_pre]:whitespace-pre-wrap overflow-hidden max-h-[600px] md:max-h-[400px] p-2 lg:p-0 [mask-image:linear-gradient(0deg,transparent_0%,#000_40%,#000_80%)]">
                 <h1 className="text-black hover:text-blue-500 mb-4 text-xl font-extrabold leading-none tracking-tight md:text-2xl">{project.title}</h1>
-              <div className='text-gray-500'>
+              <div className='text-gray-900'>
                 <img src={project.image}/>
                 <br/>
                 <p>{project.description}</p>

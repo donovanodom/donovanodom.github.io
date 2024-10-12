@@ -1,5 +1,3 @@
-'use client'
-
 import {useState, useLayoutEffect, useRef, useEffect} from 'react'
 import Tags from '../reusable/Tags'
 import { filterByTags, initTags } from '../../util/helpers'
@@ -117,13 +115,13 @@ export default function Algorithms(){
         filteredAlgorithms?.map((algorithm: Algo, index: number) => (
           <div key={index} onClick={() => navigate(`/algorithms/${algorithm.id}`)} className="text-black pointer [&_pre]:whitespace-pre-wrap overflow-hidden max-h-[600px] md:max-h-[400px] p-2 lg:p-0 [mask-image:linear-gradient(0deg,transparent_0%,#000_40%,#000_80%)]">
             <h1 className="hover:text-blue-500 mb-4 text-xl font-extrabold leading-none tracking-tight md:text-2xl">{algorithm.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(algorithm.content) }} className='text-gray-500'/>
+            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(algorithm.content) }} className='text-gray-900'/>
           </div> 
         )) :
         initAlgorithms?.map((algorithm: Algo, index: number) => (
           <div key={index} onClick={() => navigate(`/algorithms/${algorithm.id}`)}  className="text-black pointer [&_pre]:whitespace-pre-wrap overflow-hidden max-h-[600px] md:max-h-[400px] p-2 lg:p-0 [mask-image:linear-gradient(0deg,transparent_0%,#000_40%,#000_80%)]">
             <h1 className="hover:text-blue-500 mb-4 text-xl font-extrabold leading-none tracking-tight md:text-2xl">{algorithm.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(algorithm.content) }} className='text-gray-500'/>
+            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(algorithm.content) }} className='text-gray-900'/>
           </div> 
         ))
         }

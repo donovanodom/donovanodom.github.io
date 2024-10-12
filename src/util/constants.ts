@@ -1,1 +1,0 @@
-export const BASE_URL = 'https://pv2api-4baf2a7674de.herokuapp.com'

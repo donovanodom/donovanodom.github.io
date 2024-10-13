@@ -24,10 +24,10 @@ export default function AboutMe(){
   }, [])
 
   return (
-    <div className="md:px-12 md:py-4 px-4 py-4 md:mt-14 mt-20">
-      <div className="grid gap-8 lg:grid-cols-2 sm:grid-cols-1">
+    <div>
+      <div className="grid gap-12 lg:grid-cols-2 sm:grid-cols-1">
         <div>
-          <h1 className='mb-4 text-4xl font-extrabold leading-none tracking-tight text-black md:text-5xl lg:text-6xl'>FullStack, Frontend-focused, TypeScript, React, NextJS and Ruby on Rails Software Engineer.</h1>
+          <h1 className='mb-4 text-4xl font-semibold leading-none tracking-tight text-black md:text-5xl lg:text-6xl'>FullStack, Frontend-focused, TypeScript, React, NextJS and Ruby on Rails Software Engineer.</h1>
           <div className="w-full my-8">
             <a className="font-sans text-white rounded-btn p-3 bg-blue-500 button-main button-scheme" href='https://docs.google.com/document/d/1n3G-_CLKlqFDO1Vevl_ca9NOiHziL2W3kS9OhMOxpTE/edit?usp=sharing' download>Download Resume</a>
           </div>
@@ -39,9 +39,9 @@ export default function AboutMe(){
           {featuredProject?.id && ( 
             <>
               <Link to={'/projects/' + featuredProject.id}>
-              <h1 className='text-black mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl'>Featured</h1>
+              <h1 className='text-black mb-4 text-4xl font-semibold leading-none tracking-tight md:text-5xl lg:text-6xl'>Featured</h1>
               <div key={featuredProject.id} className="[&_pre]:whitespace-pre-wrap overflow-hidden max-h-full py-2 lg:p-0">
-                  <h1 className="text-black hover:text-blue-500 mb-4 text-xl font-extrabold leading-none tracking-tight md:text-2xl">{featuredProject.title}</h1>
+                  <h1 className="text-black hover:text-blue-500 mb-4 text-xl font-semibold leading-none tracking-tight md:text-2xl">{featuredProject.title}</h1>
                   <div className='text-gray-500'>
                     <img src={featuredProject.image}/>
                     <br/>

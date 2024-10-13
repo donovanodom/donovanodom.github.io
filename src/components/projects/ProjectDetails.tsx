@@ -33,12 +33,12 @@ export default function ProjectDetails(){
   }, []) 
 
   return (
-    <div className="md:px-12 md:py-4 px-4 py-4 md:mt-14 mt-20">
+    <div>
       { !loading ? 
         <div className="text-black [&_pre]:whitespace-pre-wrap">
           <div>
             <h1>
-              <a href={project.github_link} className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-3xl lg:text-4xl hover:text-blue-500">{project.title}</a>
+              <a href={project.github_link} className="mb-4 text-2xl font-semibold leading-none tracking-tight md:text-3xl lg:text-4xl hover:text-blue-500">{project.title}</a>
             </h1>
             <div className="mt-2">Visit site: &nbsp;
               <a href={project.site} className="cursor-default hover:underline inline hover:text-blue-600 text-blue-500">{project.site}</a>

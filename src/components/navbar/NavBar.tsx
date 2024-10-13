@@ -1,5 +1,6 @@
 import { useState, useLayoutEffect } from 'react'
 import { Link } from 'react-router-dom'
+import dologo from '../../../public/DO.svg'
 
 const NavBar = () => {
 
@@ -16,11 +17,12 @@ const NavBar = () => {
   }, [])
 
   return (
-    <nav className={`bg-white border-b border-b-black fixed top-0 w-full ${toggleOpen ? 'z-[6]' : 'z-[1]'}`}>
-      <div className="flex flex-wrap items-center justify-between mx-auto p-4">
-        <Link to='/'>
+    <nav className={`h-[72px] bg-white border-b border-b-black fixed top-0 w-full ${toggleOpen ? 'z-[6]' : 'z-[1]'}`}>
+      <div className="bg-white flex flex-wrap items-center justify-between mx-auto p-4 border-b border-b-black">
+        <Link to='/' className='flex items-center'>
+          <img src={dologo} className='h-8 mr-2 '/>
           <div className="text-black text-xl leading-tight tracking-tight rounded-lg focus:outline-none focus:shadow-outline">
-              Donovan Odom
+              DONOVAN ODOM
           </div>
         </Link>
         <button
@@ -48,7 +50,7 @@ const NavBar = () => {
           </svg>
         </button>
         {(toggleOpen || size >= 768) && ( 
-          <div className="w-full md:block md:w-auto" id="navbar-dropdown">
+          <div className="py-4 w-full md:block md:w-auto" id="navbar-dropdown">
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
               <li>
                 <Link

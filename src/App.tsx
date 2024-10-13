@@ -12,14 +12,16 @@ function App() {
   return ( 
     <Router basename={import.meta.env.BASE_URL}> 
         <NavBar/>
-        <Routes>
-          <Route path='/' element={<AboutMe/>} />
-          <Route path='/projects' element={<Projects/>} />
-          <Route path='/projects/:slug' element={<ProjectDetails/>} />
-          <Route path='/algorithms' element={<Algorithms/>} />
-          <Route path='/algorithms/:slug' element={<AlgorithmDetails/>} />
-          <Route path='/write-ups' element={<WriteUps/>} />
-        </Routes>
+        <div className="md:px-28 md:py-16 px-4 py-2 md:mt-14 mt-20">
+          <Routes>
+              <Route path='/' element={<AboutMe/>} />
+              <Route path='/projects' element={<Projects/>} />
+              <Route path='/projects/:slug' element={<ProjectDetails/>} />
+              <Route path='/algorithms' element={<Algorithms/>} />
+              <Route path='/algorithms/:slug' element={<AlgorithmDetails/>} />
+              <Route path='/write-ups' element={<WriteUps/>} />
+          </Routes>
+        </div>
     </Router>
   )
 }

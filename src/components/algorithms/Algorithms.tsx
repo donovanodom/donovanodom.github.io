@@ -99,7 +99,7 @@ export default function Algorithms(){
   }, [width, toggleTags])
 
   return (
-    <div className="md:px-12 md:py-4 px-4 py-4 md:mt-14 mt-20">
+    <div>
       <Tags 
         ref={ref}
         tags={tags} 
@@ -108,19 +108,19 @@ export default function Algorithms(){
         handleSelection={handleSelection}
         selected={tags.some((tag) => tag.active)}
       />
-      <div className='h-4'></div>
+      <div className='h-5'></div>
       { !loading ?
       <div style={{marginTop: `${height}px` }} className={`cursor-default grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:pt-2 xl:grid-cols-4 grid-cols-1`}>
         {!!filteredAlgorithms.length ? 
         filteredAlgorithms?.map((algorithm: Algo, index: number) => (
           <div key={index} onClick={() => navigate(`/algorithms/${algorithm.id}`)} className="text-black pointer [&_pre]:whitespace-pre-wrap overflow-hidden max-h-[600px] md:max-h-[400px] p-2 lg:p-0 [mask-image:linear-gradient(0deg,transparent_0%,#000_40%,#000_80%)]">
-            <h1 className="hover:text-blue-500 mb-4 text-xl font-extrabold leading-none tracking-tight md:text-2xl">{algorithm.title}</h1>
+            <h1 className="hover:text-blue-500 mb-4 text-xl font-semibold leading-none tracking-tight md:text-2xl">{algorithm.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(algorithm.content) }} className='text-gray-900'/>
           </div> 
         )) :
         initAlgorithms?.map((algorithm: Algo, index: number) => (
           <div key={index} onClick={() => navigate(`/algorithms/${algorithm.id}`)}  className="text-black pointer [&_pre]:whitespace-pre-wrap overflow-hidden max-h-[600px] md:max-h-[400px] p-2 lg:p-0 [mask-image:linear-gradient(0deg,transparent_0%,#000_40%,#000_80%)]">
-            <h1 className="hover:text-blue-500 mb-4 text-xl font-extrabold leading-none tracking-tight md:text-2xl">{algorithm.title}</h1>
+            <h1 className="hover:text-blue-500 mb-4 text-xl font-semibold leading-none tracking-tight md:text-2xl">{algorithm.title}</h1>
             <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(algorithm.content) }} className='text-gray-900'/>
           </div> 
         ))

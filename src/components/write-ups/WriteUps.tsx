@@ -25,13 +25,13 @@ export default function WriteUps(){
   }
 
   return (
-    <div className="md:px-12 md:py-4 px-4 py-4 md:mt-14 mt-20">
+    <div>
       <SearchInput handler={searchHandler} placeholder={'Search for text...'}/>
       <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1'>
       {!!writeUps.length && writeUps?.map((writeUp: WriteUp, index: number) => (
           <div key={writeUp?.guid || index} className='overflow-hidden max-h-[600px] md:max-h-[400px] p-2 lg:p-0'>
             <Link to={writeUp.link}>
-              <h1 className='text-black hover:text-blue-500 mb-4 text-xl font-extrabold leading-none tracking-tight md:text-2xl'>{writeUp.title}</h1>
+              <h1 className='text-black hover:text-blue-500 mb-4 text-xl font-semibold leading-none tracking-tight md:text-2xl'>{writeUp.title}</h1>
             </Link>
             <div className='mb-4'>
               {writeUp?.categories?.map((tag: string, index: number) => 

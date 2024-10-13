@@ -39,13 +39,13 @@ export default function AlgorithmDetails(){
   }
 
   return (
-    <div className="md:px-12 md:py-4 px-4 py-4 md:mt-14 mt-20">
+    <div>
       { !loading ? 
       <div className="text-black [&_pre]:whitespace-pre-wrap">
-        <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-3xl lg:text-4xl">{algorithm.title}</h1>
+        <h1 className="mb-4 text-2xl font-semibold leading-none tracking-tight md:text-3xl lg:text-4xl">{algorithm.title}</h1>
         <div dangerouslySetInnerHTML={{__html: algorithm.content}}/>
         <br/>
-        <span className='font-bold text-lg'>Solution:</span>
+        <span className='font-semibold text-lg'>Solution:</span>
         <SyntaxHighlighter language="javascript" style={nightOwl}>
           {convertUnicode(algorithm.code)}
         </SyntaxHighlighter>

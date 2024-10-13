@@ -12,7 +12,7 @@ interface TagsProps{
 
 const Tags: ForwardRefRenderFunction <HTMLDivElement,  TagsProps> = ({tags, toggleTags, handleToggle, handleSelection, selected}, ref) => {
   return (
-    <div className={`fixed ${toggleTags ? 'z-[3] border-t border-black' : 'z-[5]'} top-16 w-full ml-[-16px] md:ml-[-48px] md:top-[72px] mb-4`}>
+    <div className={`fixed ${toggleTags ? 'z-[3] border-t border-black md:top-[88px]' : 'z-[5] md:top-[72px]'} top-16 w-full ml-[-16px] md:ml-[-112px] mb-4`}>
       <div ref={ref} className={`${toggleTags ? 'p-3' : 'p-0'} max-h-48 overflow-y-scroll bg-white  ${toggleTags ? 'border-b border-b-black' : ''}`}>
         {toggleTags && !!tags.length && tags?.map((tag: AlgoTag, index: number) => {
           const displayTag = `${tag.name} (${tag.count})`

@@ -1,10 +1,9 @@
 import {useState, useLayoutEffect, useRef, useEffect} from 'react'
 import Tags from '../reusable/Tags'
 import { filterByTags, initTags } from '../../util/helpers'
-import DOMPurify from "isomorphic-dompurify"
 import { BASE_URL } from '../../util/constants'
 import { Algo, AlgoTag } from '../../types/types'
-import { useNavigate } from 'react-router'
+import AlgorithmCard from './AlgorithmCard'
 
 export default function Algorithms(){
   
@@ -17,7 +16,6 @@ export default function Algorithms(){
   const [loading, setLoading] = useState<boolean>(true)
 
   const ref = useRef<HTMLDivElement>(null)
-  const navigate = useNavigate()
 
   const handleToggle  = () => {
     setToggleTags(() => !toggleTags)
@@ -110,22 +108,11 @@ export default function Algorithms(){
       />
       <div className='h-5'></div>
       { !loading ?
-      <div style={{marginTop: `${height}px` }} className={`cursor-default grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:pt-2 xl:grid-cols-4 grid-cols-1`}>
-        {!!filteredAlgorithms.length ? 
-        filteredAlgorithms?.map((algorithm: Algo, index: number) => (
-          <div key={index} onClick={() => navigate(`/algorithms/${algorithm.id}`)} className="text-black pointer [&_pre]:whitespace-pre-wrap overflow-hidden max-h-[600px] md:max-h-[400px] p-2 lg:p-0 [mask-image:linear-gradient(0deg,transparent_0%,#000_40%,#000_80%)]">
-            <h1 className="hover:text-blue-500 mb-4 text-xl font-semibold leading-none tracking-tight md:text-2xl">{algorithm.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(algorithm.content) }} className='text-gray-900'/>
-          </div> 
-        )) :
-        initAlgorithms?.map((algorithm: Algo, index: number) => (
-          <div key={index} onClick={() => navigate(`/algorithms/${algorithm.id}`)}  className="text-black pointer [&_pre]:whitespace-pre-wrap overflow-hidden max-h-[600px] md:max-h-[400px] p-2 lg:p-0 [mask-image:linear-gradient(0deg,transparent_0%,#000_40%,#000_80%)]">
-            <h1 className="hover:text-blue-500 mb-4 text-xl font-semibold leading-none tracking-tight md:text-2xl">{algorithm.title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(algorithm.content) }} className='text-gray-900'/>
-          </div> 
-        ))
-        }
-      </div> :
+      <AlgorithmCard 
+        filteredAlgorithms={filteredAlgorithms}
+        initAlgorithms={initAlgorithms}
+        height={height}
+      /> :
       null }
     </div>
   )

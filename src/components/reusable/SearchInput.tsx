@@ -8,7 +8,7 @@ interface SearchInputProps {
 const SearchInput = memo(( {handler, placeholder} : SearchInputProps) => {
 
   return (
-    <form className="max-w-md mx-auto mb-4 bg-white">
+    <form className="max-w-md mx-auto mb-2 md:mb-7 bg-white">
       <div className="relative bg-white">
         <input
           type='text'

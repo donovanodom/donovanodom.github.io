@@ -4,6 +4,7 @@ import { filterByTags, initTags } from '../../util/helpers'
 import { BASE_URL } from '../../util/constants'
 import { Algo, AlgoTag } from '../../types/types'
 import AlgorithmCard from './AlgorithmCard'
+import Loader from '../reusable/Loader'
 
 export default function Algorithms(){
   
@@ -113,7 +114,7 @@ export default function Algorithms(){
         initAlgorithms={initAlgorithms}
         height={height}
       /> :
-      null }
+      <Loader/>}
     </div>
   )
 }

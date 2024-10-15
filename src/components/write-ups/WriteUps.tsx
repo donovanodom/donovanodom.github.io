@@ -4,17 +4,26 @@ import SearchInput from '../../components/reusable/SearchInput'
 import Tag from '../../components/reusable/Tag'
 import { WriteUp } from '../../types/types'
 import { Link } from 'react-router-dom'
+import Loader from '../reusable/Loader'
 
 export default function WriteUps(){
 
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState<string>('')
   const [writeUps, setWriteUps] = useState<WriteUp[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
     const fetchWriteUps = async () => {
-      const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@donovanodom')
-      const data = await res.json()
-      setWriteUps(searchWriteUpText(search, data.items))
+      setLoading(true)
+      try{
+        const res = await fetch('https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@donovanodom')
+        const data = await res.json()
+        setWriteUps(searchWriteUpText(search, data.items))
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      } finally {
+        setLoading(false)
+      }
     }
     fetchWriteUps()
   },[search])
@@ -27,6 +36,7 @@ export default function WriteUps(){
   return (
     <div>
       <SearchInput handler={searchHandler} placeholder={'Search for text...'}/>
+      { !loading ? 
       <div className='grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1'>
       {!!writeUps.length && writeUps?.map((writeUp: WriteUp, index: number) => (
           <div key={writeUp?.guid || index} className='overflow-hidden max-h-[600px] md:max-h-[400px] p-2 lg:p-0'>
@@ -48,7 +58,8 @@ export default function WriteUps(){
             </div>
           </div>
         ))}
-      </div>
+      </div> :
+      <Loader/> }
     </div>
   )
 }

@@ -4,6 +4,7 @@ import { BASE_URL } from '../../util/constants';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { Algo } from '../../types/types';
+import Loader from '../reusable/Loader';
 
 export default function AlgorithmDetails(){
 
@@ -50,7 +51,7 @@ export default function AlgorithmDetails(){
           {convertUnicode(algorithm.code)}
         </SyntaxHighlighter>
       </div> :
-      null }
+      <Loader/> }
     </div>
   )
 }

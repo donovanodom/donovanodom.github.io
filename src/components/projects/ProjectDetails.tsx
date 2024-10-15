@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { BASE_URL } from '../../util/constants'
 import { useParams } from 'react-router'
 import { Project } from '../../types/types'
+import Loader from '../reusable/Loader'
 
 export default function ProjectDetails(){
 
@@ -52,7 +53,7 @@ export default function ProjectDetails(){
             </div>
           </div> 
         </div> :
-      null }
+      <Loader/> }
     </div>
   )
 }

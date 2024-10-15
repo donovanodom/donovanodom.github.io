@@ -2,24 +2,34 @@ import { useNavigate } from 'react-router';
 import { Project } from '../../types/types';
 import { BASE_URL } from '../../util/constants';
 import { useEffect, useState } from 'react';
+import Loader from '../reusable/Loader';
 
 export default function Projects(){
 
   const [initProjects, setInitProjects] = useState<Project[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   const navigate = useNavigate()
 
   useEffect(() => { 
     const fetchProjects = async () => {
-      const res = await fetch(BASE_URL + '/projects')
-      const data = await res.json()
-      setInitProjects(data)
+      setLoading(true)
+      try{
+        const res = await fetch(BASE_URL + '/projects')
+        const data = await res.json()
+        setInitProjects(data)
+      } catch (error){
+        console.error('Error fetching data:', error)
+      } finally {
+        setLoading(false)
+      }
     }
     fetchProjects()
   }, [])
 
   return (
     <div>
+      {!loading ? 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1">
         {!!initProjects && initProjects?.map((project: Project) => (
             <div key={project.id} onClick={() => navigate(`/projects/${project.id}`)} className="pointer [&_pre]:whitespace-pre-wrap overflow-hidden max-h-[600px] md:max-h-[400px] p-2 lg:p-0 [mask-image:linear-gradient(0deg,transparent_0%,#000_40%,#000_80%)]">
@@ -31,7 +41,8 @@ export default function Projects(){
               </div>
             </div>
         ))}
-      </div>
+      </div> :
+      <Loader/> }
     </div>
   )
 }

@@ -53,9 +53,9 @@ export default function ProjectDetails(){
               <p>{project.description}</p>
               <br/>
               <img src={project.image}/>
-              <br/>
+              <br/> 
               <div>Code snippet:</div>
-              <SyntaxHighlighter language="jsx" style={nightOwl}>
+              <SyntaxHighlighter language="javascript" style={nightOwl}>
                 {convertUnicode(project.snippet)}
               </SyntaxHighlighter>
             </div>

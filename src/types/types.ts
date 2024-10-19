@@ -13,6 +13,7 @@ export type Project = {
   title: string,
   description: string,
   image: string,
+  snippet: string,
   github_link: string,
   site: string
 }

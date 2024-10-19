@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { Algo } from '../../types/types';
 import Loader from '../reusable/Loader';
+import { convertUnicode } from '../../util/helpers';
 
 export default function AlgorithmDetails(){
 
@@ -33,11 +34,6 @@ export default function AlgorithmDetails(){
     }
     fetchAlgorithm()
   }, []) 
-
-  function convertUnicode(input: string): string {
-    return input?.replace(/\\+u([0-9a-fA-F]{4})/g, (_, b: string) =>
-      String.fromCharCode(parseInt(b, 16)));
-  }
 
   return (
     <div>

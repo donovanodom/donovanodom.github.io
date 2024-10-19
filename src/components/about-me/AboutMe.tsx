@@ -11,6 +11,7 @@ export default function AboutMe(){
     title: '',
     description: '',
     image: '',
+    snippet: '',
     github_link: '',
     site: ''
   })
@@ -20,7 +21,7 @@ export default function AboutMe(){
     const fetchProject = async () => {
       setLoading(true)
       try {
-        const res = await fetch(BASE_URL + '/projects/1')
+        const res = await fetch(BASE_URL + '/projects/35')
         const data = await res.json()
         setFeaturedProject(data)
       } catch (error) {

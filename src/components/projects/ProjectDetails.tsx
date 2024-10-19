@@ -3,6 +3,9 @@ import { BASE_URL } from '../../util/constants'
 import { useParams } from 'react-router'
 import { Project } from '../../types/types'
 import Loader from '../reusable/Loader'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { convertUnicode } from '../../util/helpers'
+import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 
 export default function ProjectDetails(){
 
@@ -12,6 +15,7 @@ export default function ProjectDetails(){
     title: "",
     description: "",
     image: "",
+    snippet: "",
     github_link: "",
     site: "",
   })
@@ -44,12 +48,16 @@ export default function ProjectDetails(){
             <div className="mt-2">Visit site: &nbsp;
               <a href={project.site} className="cursor-default hover:underline inline hover:text-blue-600 text-blue-500">{project.site}</a>
             </div>
+            <div>Link to repository: <a className="text-blue-500" href={project.github_link}>{project.github_link}</a></div>
             <div>
               <p>{project.description}</p>
               <br/>
               <img src={project.image}/>
               <br/>
-              <div>Link to repository: <a className="text-blue-500" href={project.github_link}>{project.github_link}</a></div>
+              <div>Code snippet:</div>
+              <SyntaxHighlighter language="jsx" style={nightOwl}>
+                {convertUnicode(project.snippet)}
+              </SyntaxHighlighter>
             </div>
           </div> 
         </div> :

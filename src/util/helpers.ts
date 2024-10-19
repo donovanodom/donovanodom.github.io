@@ -56,3 +56,8 @@ export const initTags = (algorithms: Algo[] = []): AlgoTag[] => {
 
   return mappedTags
 }
+
+export function convertUnicode(input: string): string {
+  return input?.replace(/\\+u([0-9a-fA-F]{4})/g, (_, b: string) =>
+    String.fromCharCode(parseInt(b, 16)));
+}

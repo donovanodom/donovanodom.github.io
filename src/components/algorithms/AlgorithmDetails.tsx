@@ -1,6 +1,5 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { nightOwl } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { BASE_URL } from '../../util/constants';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { Algo } from '../../types/types';
@@ -22,10 +21,13 @@ export default function AlgorithmDetails(){
   useEffect(() => { 
     const fetchAlgorithm = async () => {
       setLoading(true)
+      console.log(slug, typeof slug)
       try{
-        const res = await fetch(BASE_URL + `/algorithms/${slug}`)
+        const res = await fetch('data/algorithms.json')
         const data = await res.json()
-        setAlgorithm(data)
+        const foundAlgorithm = data.find((item: Algo) => item.id == slug)
+        if(foundAlgorithm == undefined) return
+        setAlgorithm(foundAlgorithm)
       } catch (error) {
         console.error('Error fetching data:', error)
       } finally {

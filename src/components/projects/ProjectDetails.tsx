@@ -25,9 +25,11 @@ export default function ProjectDetails(){
     const fetchProject = async () => {
       setLoading(true)
       try{
-        const res = await fetch(BASE_URL + `/projects/${slug}`)
+        const res = await fetch('data/projects.json')
         const data = await res.json()
-        setProject(data)
+        const foundProject = data.find((item: Project) => item.id == slug)
+        if(foundProject == undefined) return
+        setProject(foundProject)
       } catch (error) {
         console.error('Error fetching data:', error)
       } finally {

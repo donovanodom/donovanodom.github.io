@@ -1,7 +1,6 @@
 import {useState, useLayoutEffect, useRef, useEffect} from 'react'
 import Tags from '../reusable/Tags'
 import { filterByTags, initTags } from '../../util/helpers'
-import { BASE_URL } from '../../util/constants'
 import { Algo, AlgoTag } from '../../types/types'
 import AlgorithmCard from './AlgorithmCard'
 import Loader from '../reusable/Loader'
@@ -54,7 +53,7 @@ export default function Algorithms(){
     const fetchAlgorithms = async () => {
       setLoading(true)
       try{
-        const res = await fetch(BASE_URL + `/algorithms`)
+        const res = await fetch('data/algorithms.json')
         const data = await res.json()
         setInitAlgorithms(data)
       } catch (error) {

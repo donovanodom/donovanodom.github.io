@@ -21,9 +21,11 @@ export default function AboutMe(){
     const fetchProject = async () => {
       setLoading(true)
       try {
-        const res = await fetch(BASE_URL + '/projects/35')
+        const res = await fetch('data/projects.json')
         const data = await res.json()
-        setFeaturedProject(data)
+        const foundFeaturedProject = data.find((item: Project) => item.id == '35')
+        if(foundFeaturedProject == undefined) return
+        setFeaturedProject(foundFeaturedProject)
       } catch (error) {
         console.error('Error fetching data:', error)
       } finally {

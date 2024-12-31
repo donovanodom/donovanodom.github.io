@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router';
 import { Project } from '../../types/types';
-import { BASE_URL } from '../../util/constants';
 import { useEffect, useState } from 'react';
 import Loader from '../reusable/Loader';
 
@@ -15,7 +14,7 @@ export default function Projects(){
     const fetchProjects = async () => {
       setLoading(true)
       try{
-        const res = await fetch(BASE_URL + '/projects')
+        const res = await fetch('data/projects.json')
         const data = await res.json()
         setInitProjects(data)
       } catch (error){

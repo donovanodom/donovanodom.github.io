@@ -1,4 +1,3 @@
-import { BASE_URL } from "../../util/constants";
 import { Project } from "../../types/types";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
